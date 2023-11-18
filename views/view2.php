@@ -21,7 +21,7 @@
 <?php
 // Check connection
 
-require_once 'dbh.inc.php';
+require_once '../db/dbh.inc.php';
 
 
 // Assuming the connection is already established above.

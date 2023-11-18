@@ -21,7 +21,7 @@
 <?php
 // Check connection
 
-require_once 'dbh.inc.php';
+require_once '../db/dbh.inc.php';
 
 $sql = "SELECT p.ProjectTitle, p.ProjectDescription, sm.SkillName, p.ProjectManagerID, u.FirstName, u.LastName, u.Username
         FROM final.projects p
@@ -31,7 +31,7 @@ $sql = "SELECT p.ProjectTitle, p.ProjectDescription, sm.SkillName, p.ProjectMana
 
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: ../view2.php?error=stmtFailed");
+    header("location: ../view1.php?error=stmtFailed");
 }
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);

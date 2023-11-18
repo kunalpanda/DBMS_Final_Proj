@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once 'dbh.inc.php';
+require_once '../db/dbh.inc.php';
 
 $sql = "SELECT j.JobID, j.UserID, j.JobTitle, j.JobDescription, sm.SkillName
         FROM final.jobs j
