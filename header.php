@@ -13,7 +13,7 @@ session_start();
             /*Styles for the entire navigation bar*/
             .navbar{ 
                 overflow: hidden;
-                background-color: #333;
+                background-color: #232020;
             }
             /*Styles for all the links in the nav*/
             .nav-link{

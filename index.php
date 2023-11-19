@@ -7,6 +7,12 @@ include "header.php"
     <link rel="stylesheet" type="text/css" href="./css/main.css">
     <title>Home</title>
     </head>
-<body>
-</body>
-</html>
+    <body>
+        <div class="container">
+            
+        <div>
+    </body>
+
+<?php
+include "footer.php";
+?>

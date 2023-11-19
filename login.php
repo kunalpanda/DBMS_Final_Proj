@@ -16,5 +16,8 @@ include "header.php";
             <input type="submit" value="Login">
         </form>
     </div>
-</body>
-</html>
+    
+    <?php
+    include "footer.php"
+    ?>
+
