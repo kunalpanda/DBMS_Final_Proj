@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Execute the statement
     if($stmt->execute()){
-        header("Location: ../pages/login.php");
+        header("Location: ../login.php");
         exit();
     } else {
         echo "Error: " . $stmt->error;
@@ -33,6 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $stmt->close();
     $conn->close();
 } else {
-    header("Location: ../pages/index.php");
+    header("Location: ../index.php");
     exit();
 }

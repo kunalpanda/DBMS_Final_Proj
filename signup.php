@@ -9,7 +9,7 @@ include "header.php";
 </head>
 <body>
     <div class="form-container">
-        <form action="../db/signUpHandler.inc.php" method="post"> 
+        <form action="./db/signUpHandler.inc.php" method="post"> 
             <h2>Register</h2>
             <input type="text" name="Username" placeholder="Username" required>
             <input type="password" name="Password" placeholder="Password" required>
