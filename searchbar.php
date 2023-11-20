@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Job Search</title>
-    <link rel="stylesheet" type="text/css" href="./css/search.css">
+    <link rel="stylesheet" type="text/css" href="../css/search.css">
 </head>
 <body>
 
@@ -53,6 +53,7 @@
 </script>
 
 <?php
+require_once "db/dbh.inc.php";
 // Process the form submission
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Assume $conn is your database connection
