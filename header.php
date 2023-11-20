@@ -53,10 +53,10 @@ session_start();
                     <a class="nav-link" href="index.php" id="home"><b>Home</b></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="index.php" id="orders"><b>Projects</b></a>
+                    <a class="nav-link" href="index.php" id="projects"><b>Projects</b></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="index.php" id="about"><b>Jobs</b></a>
+                    <a class="nav-link" href="jobpage.php" id="jobs"><b>Jobs</b></a>
                   </li>
                 </ul>
                 <!-- Left links -->
