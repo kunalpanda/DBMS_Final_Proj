@@ -1,20 +1,14 @@
 <?php
-include "header.php";
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Job Page</title>
-    <link rel="stylesheet" type="text/css" href="./css/jobstyle.css">
-</head>
-<body style="">
-
-<?php
 
 require_once './db/dbh.inc.php';
+include_once 'search.php'; // Include the search bar functionality
 
+// Define variables for search and filters
+$search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : null;
+$skill = isset($_GET['skill']) ? mysqli_real_escape_string($conn, $_GET['skill']) : null;
+$tag = isset($_GET['tag']) ? mysqli_real_escape_string($conn, $_GET['tag']) : null;
+
+// SQL query to include search terms and filters
 $sql = "SELECT 
     j.JobID, 
     j.UserID, 
@@ -23,9 +17,10 @@ $sql = "SELECT
     j.JobPrice,
     j.JobDuration,
     j.DatePosted,
-    sm.SkillName,
+    GROUP_CONCAT(DISTINCT sm.SkillName SEPARATOR ', ') AS SkillNames,
     u.FirstName,
     u.LastName,
+    u.Email,
     GROUP_CONCAT(DISTINCT t.TagName SEPARATOR ', ') AS TagNames
 FROM 
     final.jobs j
@@ -36,33 +31,69 @@ LEFT JOIN
 LEFT JOIN 
     final.tags t ON tm.TagID = t.TagID
 LEFT JOIN 
-    final.users u ON j.UserID = u.UserID
-WHERE 
-    j.JobID IS NOT NULL
-GROUP BY 
+    final.users u ON j.UserID = u.UserID";
+
+$conditions = [];
+$params = [];
+
+// Append conditions based on search and filters
+if ($search) {
+    $conditions[] = "j.JobTitle LIKE ?";
+    $params[] = "%$search%";
+}
+if ($skill) {
+    $conditions[] = "sm.SkillName = ?";
+    $params[] = $skill;
+}
+if ($tag) {
+    $conditions[] = "t.TagName = ?";
+    $params[] = $tag;
+}
+
+if (count($conditions) > 0) {
+    $sql .= " WHERE " . implode(' AND ', $conditions);
+}
+
+$sql .= " GROUP BY 
     j.JobID, 
     j.UserID, 
     j.JobTitle, 
     j.JobDescription, 
     j.JobPrice,
     j.JobDuration,
-    j.DatePosted,
-    sm.SkillName,
-    u.FirstName,
-    u.LastName;
-";
+    j.DatePosted";
 
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: ../view4.php?error=stmtFailed");
+    header("location: ../jobpage.php?error=stmtFailed");
     exit();
 }
+
+
+if (!empty($params)) {
+    $types = str_repeat('s', count($params)); // Types string, e.g., 'sss' for three parameters
+    mysqli_stmt_bind_param($stmt, $types, ...$params);
+}
+
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Page</title>
+    <link rel="stylesheet" type="text/css" href="./css/jobstyle.css">
+</head>
+<body>
+
+
+<div class='job-container'>
+
+<?php
 if ($result->num_rows > 0) {
-    echo "<div class='job-container'>";
-    // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<div class='job-card'>
             <h3>".$row["JobTitle"]."</h3>
@@ -73,11 +104,10 @@ if ($result->num_rows > 0) {
             </div>
             <p>".$row["JobDescription"]."</p>
             <ul class='job-tags'>
-                <li>".$row["SkillName"]."</li>
-                <!-- Add other tags here -->
+                <li>".$row["SkillNames"]."</li>
             </ul>
             <p><strong>Posted By:</strong> ".$row["FirstName"]." ".$row["LastName"]."</p>
-            <button>See more</button>
+            <a href='mailto:".$row["Email"]."?subject=Regarding Project: ".$row["JobTitle"]."'><button>Email</button></a>
         </div>";
     }
     echo "</div>";
