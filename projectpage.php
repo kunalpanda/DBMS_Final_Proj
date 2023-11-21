@@ -1,11 +1,12 @@
 <?php 
-include "header.php"
+include "header.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Job Page</title>
+    <title>Project Page</title>
     <link rel="stylesheet" type="text/css" href="./css/jobstyle.css">
 </head>
 <body>
@@ -13,37 +14,37 @@ include "header.php"
 <?php
 
 require_once './db/dbh.inc.php';
+
 $sql = "SELECT 
+    p.ProjectID,
     p.ProjectTitle,
     p.ProjectDescription,
-    sm.SkillName,
     p.ProjectManagerID,
-    u.FirstName,
-    u.LastName,
-    u.Username,
-
-    GROUP_CONCAT(DISTINCT t.TagName SEPARATOR ', ') AS TagNames
+    u.FirstName AS ManagerFirstName,
+    u.LastName AS ManagerLastName,
+    u.Username AS ManagerUsername,
+    GROUP_CONCAT(DISTINCT t.TagName SEPARATOR ', ') AS TagNames,
+    GROUP_CONCAT(DISTINCT sm.SkillName SEPARATOR ', ') AS SkillNames
 FROM 
     final.projects p
 LEFT JOIN 
     final.users u ON u.UserID = p.ProjectManagerID
 LEFT JOIN 
-    final.skillmap sm ON p.ProjectID = sm.ProjID
-LEFT JOIN 
-    final.tagmap tm ON p.ProjectID = tm.ProjectID
+    final.tagmap tm ON p.ProjectID = tm.ProjID
 LEFT JOIN 
     final.tags t ON tm.TagID = t.TagID
+LEFT JOIN 
+    final.skillmap sm ON p.ProjectID = sm.ProjID
 WHERE 
-    p.ProjectID IS NOT NULL AND
-    u.UserID = p.ProjectManagerID
+    p.ProjectID IS NOT NULL
 GROUP BY 
     p.ProjectID, 
     p.ProjectTitle, 
     p.ProjectDescription, 
     p.ProjectManagerID,
-    u.FirstName,
-    u.LastName,
-    u.Username";
+    ManagerFirstName,
+    ManagerLastName,
+    ManagerUsername";
 
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -53,7 +54,6 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
-
 if ($result->num_rows > 0) {
     echo "<div class='job-container'>";
     // output data of each row
@@ -61,12 +61,11 @@ if ($result->num_rows > 0) {
         echo "<div class='job-card'>
             <h3>".$row["ProjectTitle"]."</h3>
             <div class='job-meta'>
-                <!-- Adjust meta data based on your needs -->
-                <span>Project Manager: ".$row["FirstName"]." ".$row["LastName"]." (@".$row["Username"].")</span>
+                <span>Project Manager: ".$row["ManagerFirstName"]." ".$row["ManagerLastName"]." (@".$row["ManagerUsername"].")</span>
             </div>
             <p>".$row["ProjectDescription"]."</p>
             <ul class='job-tags'>
-                <li>".$row["SkillName"]."</li>
+                <li>".$row["SkillNames"]."</li>
                 <!-- Add other tags here -->
             </ul>
             <!-- Additional information and button -->
