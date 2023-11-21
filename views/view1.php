@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once '../db/dbh.inc.php';
+require_once './db/dbh.inc.php';
 
 $sql = "SELECT p.ProjectTitle, p.ProjectDescription, sm.SkillName, p.ProjectManagerID, u.FirstName, u.LastName, u.Username
         FROM final.projects p

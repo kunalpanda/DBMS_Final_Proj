@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once '../db/dbh.inc.php';
+require_once './db/dbh.inc.php';
 
 $sql = "SELECT AVG(r.rating) AS 'Overall Rating'
         FROM final.reviews r, final.users u
