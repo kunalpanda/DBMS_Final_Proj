@@ -44,7 +44,8 @@ $result3 = mysqli_stmt_get_result($stmt);
 
 if ($result3->num_rows > 0) {
     echo "<h2>Reviews for", $skillNeeded ,"</h2>";
-    echo "<table>
+    echo "<table table class='table table-striped'>
+    <thead>
     <tr>
     <th>Review ID</th>
     <th>Creator User ID</th>
@@ -53,7 +54,8 @@ if ($result3->num_rows > 0) {
     <th>Comment</th>
     <th>Role ID</th>
     <th>Date Posted</th>
-    </tr>"; // Add other column headers as needed
+    </tr>
+    </thead>"; // Add other column headers as needed
     // output data of each row
     while($row = $result3->fetch_assoc()) {
         echo "<tr>

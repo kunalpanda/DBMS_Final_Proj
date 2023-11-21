@@ -35,7 +35,7 @@ $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
     echo "<h2>Projects that are accepting collaborators</h2>";
-    echo "<table><tr>";
+    echo "<table table class='table table-striped'><thead><tr>";
     
     // Fetching the first row to get column names
     $firstRow = $result->fetch_assoc();
@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
         foreach ($firstRow as $value) {
             echo "<td>".htmlspecialchars($value)."</td>";
         }
-        echo "</tr>";
+        echo "</tr></thead>";
 
         // Output rest of the row data
         while($row = $result->fetch_assoc()) {

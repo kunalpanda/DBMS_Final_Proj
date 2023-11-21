@@ -42,7 +42,8 @@ $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
     echo "<h2>Tasks and Projects Related to User ID ",$userIDReq,"</h2>";
-    echo "<table>
+    echo "<table table class='table table-striped'>
+    <thead>
     <tr>
     <th>Task ID</th>
     <th>Creator ID</th>
@@ -50,7 +51,8 @@ if ($result->num_rows > 0) {
     <th>Task Description</th>
     <th>Task Timeline</th>
     <th>Skill Required</th>
-    </tr>";
+    </tr>
+    </thead>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr>

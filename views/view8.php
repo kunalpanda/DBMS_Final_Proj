@@ -36,14 +36,16 @@ $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
     echo "<h2>Contractor Profiles</h2>";
-    echo "<table>
+    echo "<table table class='table table-striped'>
+    <thead>
     <tr>
     <th>User ID</th>
     <th>Username</th>
     <th>Email</th>
     <th>Address</th>
     <th>Skill Name</th>
-    </tr>";
+    </tr>
+    </thead>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
         echo "<tr>

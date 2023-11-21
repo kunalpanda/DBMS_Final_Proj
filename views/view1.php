@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>View 1</title>
@@ -37,18 +35,21 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
-    echo "<table>
+    echo "<table class='table table-striped'>
+    <thead>
     <tr>
-    <th>Project Title</th>
-    <th>Description</th>
-    <th>Skill</th><th>Manager ID</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Username</th>
-    </tr>";
+    <th scope='col'>Project Title</th>
+    <th scope='col'>Description</th>
+    <th scope='col'>Skill</th><th>Manager ID</th>
+    <th scope='col'>First Name</th>
+    <th scope='col'>Last Name</th>
+    <th scope='col'>Username</th>
+    </tr>
+    </thead>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr>
+        echo "
+        <tr>
         <td>".$row["ProjectTitle"]."</td>
         <td>".$row["ProjectDescription"]."</td>
         <td>".$row["SkillName"]."</td>
