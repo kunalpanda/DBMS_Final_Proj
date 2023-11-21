@@ -1,16 +1,7 @@
 <head>
     <meta charset="UTF-8">
     <title>View 1</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/table.css">
 </head>
 <body>
 

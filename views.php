@@ -5,8 +5,8 @@ include "header.php";
     <title>PHP File Selector</title>
     <link rel="stylesheet" type="text/css" href="css/forms.css">
 </head>
-<body style="">
-    <div class="container-lg" style="margin-top:240px;">
+<body style="min-height: 100vh;">
+    <div class="container-lg min-vh-100" style="padding-top:240px;">
         <form action="" method="get" class="form-select align-items-center">
             <label for="fileSelect">Select a File:</label>
             <select name="file" id="fileSelect" class="form-control">
