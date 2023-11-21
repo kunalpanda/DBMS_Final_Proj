@@ -58,6 +58,9 @@ session_start();
                   <li class="nav-item">
                     <a class="nav-link" href="jobpage.php" id="jobs"><b>Jobs</b></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="views.php" id="jobs"><b>Views</b></a>
+                  </li>
                 </ul>
                 <!-- Left links -->
               </div>
@@ -69,7 +72,7 @@ session_start();
                   echo '<span class="navbar-text w-100">Welcome ' . $_SESSION["name"] . '</span>';
                   echo '<ul class="navbar-nav me-auto mb-2 mb-lg-0">';
                   echo '<li class="nav-item">';
-                  echo '<a class="nav-link" href="includes/signout.inc.php">Sign out</a>';
+                  echo '<a class="nav-link" href="">Sign out</a>';
                   echo '</li>';
                 }
                 else{

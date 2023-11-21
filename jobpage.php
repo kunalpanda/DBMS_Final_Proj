@@ -9,7 +9,7 @@ include "header.php";
     <title>Job Page</title>
     <link rel="stylesheet" type="text/css" href="./css/jobstyle.css">
 </head>
-<body>
+<body style="padding-top:80px">
 
 <?php
 
