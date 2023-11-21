@@ -43,7 +43,8 @@ $result2 = mysqli_stmt_get_result($stmt);
 
 if ($result2->num_rows > 0) {
 
-    echo "<table>
+    echo "<table table class='table table-striped'>
+    <thead>
     <tr>
     <th>User ID</th>
     <th>Username</th>
@@ -51,7 +52,8 @@ if ($result2->num_rows > 0) {
     <th>First Name</th>
     <th>Last Name</th>
     <th>Skill Name</th>
-    </tr>";
+    </tr>
+    </thead>";
     // output data of each row
     while($row = $result2->fetch_assoc()) {
         echo "<tr>
