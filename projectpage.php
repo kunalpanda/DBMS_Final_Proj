@@ -8,6 +8,19 @@ include "header.php";
     <meta charset="UTF-8">
     <title>Project Page</title>
     <link rel="stylesheet" type="text/css" href="./css/jobstyle.css">
+    <style>
+        /* temp styling - move to jobstyle.css */
+        .job-card {
+            position: relative;
+        }
+
+        .email-button {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: 10px; /* Optional: Add some margin for better spacing */
+        }
+    </style>
 </head>
 <body>
 
@@ -15,9 +28,6 @@ include "header.php";
 
 require_once './db/dbh.inc.php';
 
-
-//query looks good
-//look into including collaborator information
 $sql = "SELECT 
     p.ProjectID,
     p.ProjectTitle,
@@ -26,6 +36,7 @@ $sql = "SELECT
     u.FirstName AS ManagerFirstName,
     u.LastName AS ManagerLastName,
     u.Username AS ManagerUsername,
+    u.Email AS ManagerEmail,
     GROUP_CONCAT(DISTINCT t.TagName SEPARATOR ', ') AS TagNames,
     GROUP_CONCAT(DISTINCT sm.SkillName SEPARATOR ', ') AS SkillNames
 FROM 
@@ -47,8 +58,9 @@ GROUP BY
     p.ProjectManagerID,
     ManagerFirstName,
     ManagerLastName,
-    ManagerUsername";
-    
+    ManagerUsername,
+    ManagerEmail";
+
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo "SQL error: " . mysqli_stmt_error($stmt);
@@ -58,7 +70,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
-    echo "<div class='job-container'style='margin-top:100px;'>";
+    echo "<div class='job-container'>";
     // output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "<div class='job-card'>
@@ -69,10 +81,9 @@ if ($result->num_rows > 0) {
             <p>".$row["ProjectDescription"]."</p>
             <ul class='job-tags'>
                 <li>".$row["SkillNames"]."</li>
-                <!-- Add other tags here -->
             </ul>
             <!-- Additional information -->
-            <a href='mailto:".$row["ManagerEmail"]."'><button>Email</button></a>
+            <a href='mailto:".$row["ManagerEmail"]."?subject=Regarding Project: ".$row["ProjectTitle"]."'><button class='email-button'>Email</button></a>
         </div>";
     }
     
