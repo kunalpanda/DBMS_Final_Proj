@@ -55,7 +55,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 
 if ($result->num_rows > 0) {
-    echo "<div class='job-container'>";
+    echo "<div class='job-container'style='margin-top:100px;'>";
     // output data of each row
     while ($row = $result->fetch_assoc()) {
         echo "<div class='job-card'>
