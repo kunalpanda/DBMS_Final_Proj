@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once '../db/dbh.inc.php';
+require_once './db/dbh.inc.php';
 
 $sql = "SELECT s.SkillName, t.TagName
         FROM final.skills s

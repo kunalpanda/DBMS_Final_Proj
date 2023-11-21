@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once '../db/dbh.inc.php';
+require_once './db/dbh.inc.php';
 
 $userIDReq=11;
 
