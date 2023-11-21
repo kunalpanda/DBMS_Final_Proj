@@ -1,172 +1,88 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4; /* Assuming a light grey background */
-    margin: 0;
-    padding: 20px;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4; /* Assuming a light grey background */
+  margin: 0;
+  align-items: center;
 }
 
 .job-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 50px;
-    padding: 20px;
-    gap: 20px; /* Adjusted gap for spacing */
-    justify-content: center; /* Center the cards */
+  margin-top:100px;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjusted gap for spacing */
+  justify-content: center; /* Center the cards */
 }
 
 .job-card {
-    border: 1px solid #ddd;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    background-color: #fff;
-    width: 300px; /* Fixed width */
-    margin-bottom: 20px; /* Space below each card */
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #fff;
+  width: 300px; /* Fixed width */
+  margin-bottom: 20px; /* Space below each card */
 }
 
 .job-card h3 {
-    color: #333;
-    font-size: 20px; /* Larger font size for the title */
-    margin-bottom: 10px;
+  color: #333;
+  font-size: 20px; /* Larger font size for the title */
+  margin-bottom: 10px;
 }
 
 .job-card p {
-    color: #666;
-    font-size: 14px; /* Adjusted font size */
-    line-height: 1.5; /* Line spacing for better readability */
-    margin-bottom: 5px; /* Space between paragraphs */
+  color: #666;
+  font-size: 14px; /* Adjusted font size */
+  line-height: 1.5; /* Line spacing for better readability */
+  margin-bottom: 5px; /* Space between paragraphs */
 }
 
 .job-card .job-meta {
-    color: #333;
-    font-size: 12px; /* Smaller font size for meta information */
-    margin-bottom: 15px; /* Space below meta information */
+  color: #333;
+  font-size: 12px; /* Smaller font size for meta information */
+  margin-bottom: 15px; /* Space below meta information */
 }
 
 .job-card .job-meta span {
-    display: inline-block;
-    margin-right: 10px; /* Space between meta information */
+  display: inline-block;
+  margin-right: 10px; /* Space between meta information */
 }
 
 .job-card .job-tags {
-    padding: 0;
-    list-style: none; /* Remove default list styling */
+  padding: 0;
+  list-style: none; /* Remove default list styling */
 }
 
 .job-card .job-tags li {
-    display: inline-block;
-    background-color: #eef;
-    border-radius: 4px; /* Rounded corners for tag pills */
-    padding: 5px 10px;
-    margin-right: 5px; /* Space between tags */
-    font-size: 12px;
-    color: #555;
-    margin-bottom: 10px; /* Space below tags */
+  display: inline-block;
+  background-color: #eef;
+  border-radius: 4px; /* Rounded corners for tag pills */
+  padding: 5px 10px;
+  margin-right: 5px; /* Space between tags */
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px; /* Space below tags */
 }
 
 .job-card button {
-    background-color: #5cb85c; /* Example button color */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
+  background-color: #5cb85c; /* Example button color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 /* You can add media queries to handle responsiveness */
 @media (max-width: 768px) {
-    .job-card {
-        width: calc(50% - 20px); /* Adjust width for smaller screens */
-    }
+  .job-card {
+    width: calc(50% - 20px); /* Adjust width for smaller screens */
+  }
 }
 
 @media (max-width: 480px) {
-    .job-card {
-        width: 100%; /* Full width on very small screens */
-    }
-}
-
-/* Style the dropdown button */
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-/* Mega Menu styling */
-.mega-menu {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    width: 600px; /* Adjust width as needed */
-}
-
-.menu-section {
-    margin: 10px;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Style the links inside the dropdown */
-.dropdown-content label {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content label:hover {
-    background-color: #f1f1f1
-}
-
-/* Style the submit button */
-form button[type="submit"] {
-    padding: 10px 20px;
-    margin-left: 10px;
-}
-
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* Additional styles for the price range slider */
-.menu-section input[type="range"] {
-    width: 100%;
-    margin: 5px 0;
-}
-
-.menu-section output {
-    display: block;
-    text-align: center;
-}
-
-.search-box-container{
-    margin-top: 50px;
+  .job-card {
+    width: 100%; /* Full width on very small screens */
+  }
 }
