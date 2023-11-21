@@ -18,7 +18,7 @@
 
 <?php
 
-require_once './db/dbh.inc.php';
+require_once '../db/dbh.inc.php';
 
 $sql = "SELECT u.UserID, u.Username, u.FirstName, u.LastName, u.Address, ur.RoleName 
         FROM final.users u

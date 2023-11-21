@@ -19,7 +19,7 @@
 <?php
 // Check connection
 
-require_once './db/dbh.inc.php';
+require_once '../db/dbh.inc.php';
 
 $sql = "SELECT cp.UserID, u.Username, u.Email, u.Address, sm.SkillName
         FROM final.contractorprofile cp
