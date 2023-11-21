@@ -72,6 +72,13 @@ body {
   font-size: 14px;
 }
 
+.email-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 10px; /* Optional: Add some margin for better spacing */
+
+}
 /* You can add media queries to handle responsiveness */
 @media (max-width: 768px) {
   .job-card {

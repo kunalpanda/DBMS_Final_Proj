@@ -15,6 +15,9 @@ include "header.php";
 
 require_once './db/dbh.inc.php';
 
+
+//query looks good
+//look into including collaborator information
 $sql = "SELECT 
     p.ProjectID,
     p.ProjectTitle,
@@ -45,7 +48,7 @@ GROUP BY
     ManagerFirstName,
     ManagerLastName,
     ManagerUsername";
-
+    
 $stmt = mysqli_stmt_init($conn);
 if (!mysqli_stmt_prepare($stmt, $sql)) {
     echo "SQL error: " . mysqli_stmt_error($stmt);
@@ -68,7 +71,8 @@ if ($result->num_rows > 0) {
                 <li>".$row["SkillNames"]."</li>
                 <!-- Add other tags here -->
             </ul>
-            <!-- Additional information and button -->
+            <!-- Additional information -->
+            <a href='mailto:".$row["ManagerEmail"]."'><button>Email</button></a>
         </div>";
     }
     
