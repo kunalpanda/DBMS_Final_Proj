@@ -30,17 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             echo "Wrong password";
-            header("Location: ./login.php?error=wrongpassword");
+            header("Location: ../login.php?error=wrongpassword");
             exit();
         }
     } else {
         echo "User not found";
-        header("Location: ./login.php?error=nouser");
+        header("Location: ../login.php?error=nouser");
         exit();
     }
 } else {
     // Redirect if accessed without POST request
-    header("Location: ./login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>
