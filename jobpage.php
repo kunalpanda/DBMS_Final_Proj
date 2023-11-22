@@ -1,7 +1,10 @@
 <?php
-
+include 'header.php';
 require_once './db/dbh.inc.php';
+
+echo "<div class='continer' style='margin-top:100px'>";
 include_once 'search.php'; // Include the search bar functionality
+echo "</div>";
 
 // Define variables for search and filters
 $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : null;
@@ -89,7 +92,7 @@ $result = mysqli_stmt_get_result($stmt);
 </head>
 <body>
 
-
+<div class="d-flex justify-content-center min-vh-100">
 <div class='job-container'>
 
 <?php
@@ -117,6 +120,8 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
+
+</div>
 
 </body>
 </html>
