@@ -56,7 +56,7 @@ session_start();
                     <a class="nav-link" href="projectpage.php" id="projects"><b>Projects</b></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="jobpage.php" id="jobs"><b>Jobs</b></a>
+                    <a class="nav-link" href="jobpageJS.php" id="jobs"><b>Jobs</b></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="views.php" id="jobs"><b>Views</b></a>

@@ -1,7 +1,6 @@
 <?php
 include "header.php";
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +22,10 @@ include "header.php";
     </style>
 </head>
 <body onload="loadProjectData()">
-    <div class="container min-vh-100">
+<div class="d-flex justify-content-center" style="padding-top:100px">
+<h1>Explore All Projects</h1>
+</div>
+<div class="d-flex flex-column min-vh-100" style="align-items:center;">
         <div id="projectContainer" class='job-container'>
             <!-- Project data will be loaded here -->
         </div>
