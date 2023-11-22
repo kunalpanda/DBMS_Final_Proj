@@ -22,6 +22,7 @@ body {
   background-color: #fff;
   width: 100%; /* Fixed width */
   margin-bottom: 20px; /* Space below each card */
+  max-height: 350px;
 }
 
 .job-card h3 {

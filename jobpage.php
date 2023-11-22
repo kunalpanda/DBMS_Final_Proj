@@ -92,7 +92,7 @@ $result = mysqli_stmt_get_result($stmt);
 </head>
 <body>
 
-<div class="d-flex justify-content-center min-vh-100">
+<div class="d-flex flex-column min-vh-100" style="align-items:center">
 <div class='job-container'>
 
 <?php
