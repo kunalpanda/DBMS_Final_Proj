@@ -21,6 +21,13 @@ session_start();
                 color: #95969D;
                 text-align: center;
                 text-decoration: none;
+                width: 100%;
+            }
+            .navbar-text{
+                display: block;
+                color: #95969D;
+                text-align: center;
+                text-decoration: none;
             }
             /*Styles for all the links in the nav while hover*/
             .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
@@ -66,15 +73,16 @@ session_start();
               </div>
               <!-- Collapsible wrapper -->
               <!-- Right elements -->
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center ">
               <?php 
-                if(isset($_SESSION["useruid"])){
-                  echo '<span class="navbar-text w-100">Welcome ' . $_SESSION["name"] . '</span>';
-                  echo '<ul class="navbar-nav me-auto mb-2 mb-lg-0">';
+                if (isset($_SESSION["userid"])) {
+                  echo '<div class="navbar-text w-100" style="">Welcome ' . htmlspecialchars($_SESSION["username"]) . '</div>';
+                  echo '<ul class="navbar-nav">';
                   echo '<li class="nav-item">';
-                  echo '<a class="nav-link" href="">Sign out</a>';
+                  echo '<a class="nav-link" href="db/signout.inc.php" style="margin-right:40px;">Sign out</a>';
                   echo '</li>';
-                }
+                  echo '</ul>';
+              }              
                 else{
                   echo '<ul class="navbar-nav me-auto mb-2 mb-lg-0">';
                     echo '<li class="nav-item">';
