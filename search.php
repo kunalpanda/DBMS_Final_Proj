@@ -25,7 +25,7 @@ function displaySearchForm($conn) {
             <option value="">Any Tag</option>';
     getDropdownOptions($conn, "SELECT TagName as value, TagName as label FROM Tags");
     echo '</select>
-        <input type="submit" value="Filter" />
+        <input type="submit" value="Search" />
     </form>';
 }
 
