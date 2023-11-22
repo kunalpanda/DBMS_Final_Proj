@@ -13,7 +13,7 @@ function getDropdownOptions($conn, $query) {
 
 // Search form
 function displaySearchForm($conn) {
-    echo '<form action="jobpageJSON.php" class="searchbar" method="GET">
+    echo '<form action="jobpage.php" class="searchbar" method="GET">
         Search: <input type="text" name="search" />
         Skill: 
         <select name="skill">
