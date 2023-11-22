@@ -11,13 +11,14 @@ include "header.php";
         /* temp styling - move to jobstyle.css */
         .job-card {
             position: relative;
+            
         }
 
         .email-button {
-            position: absolute;
+            position: relative;
             bottom: 0;
             left: 0;
-            margin: 10px; /* Optional: Add some margin for better spacing */
+            margin: 5px; /* Optional: Add some margin for better spacing */
         }
     </style>
 </head>
@@ -44,14 +45,16 @@ include "header.php";
                     container.innerHTML += `
                         <div class='job-card'>
                             <h3>${row.ProjectTitle}</h3>
-                            <div class='job-meta'>
-                                <span>Project Manager: ${row.ManagerFirstName} ${row.ManagerLastName} (@${row.ManagerUsername})</span>
-                            </div>
+                            
                             <p>${row.ProjectDescription}</p>
                             <ul class='job-tags'>
                                 <li>${row.SkillNames}</li>
                             </ul>
-                            <!-- Additional information -->
+                            <div class='job-meta'>
+                                
+                                <span><strong>Posted By:</strong> ${row.ManagerFirstName} ${row.ManagerLastName}</span>
+                            </div>
+
                             <a href='mailto:${row.ManagerEmail}?subject=Regarding Project: ${row.ProjectTitle}'>
                                 <button class='email-button'>Email</button>
                             </a>
