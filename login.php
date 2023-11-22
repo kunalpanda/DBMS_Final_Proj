@@ -9,11 +9,11 @@ include "header.php";
 </head>
 <body>
     <div class="form-container">
-        <form action="login.php" method="post">
-            <h2>Login (NOT READY)</h2>
-            <input type="text" name="usernameoremail" placeholder="Username or Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="submit" value="Login">
+        <form action="./db/loginHandler.inc.php" method="post">
+            <h2>Login</h2>
+            <input type="text" name="Username" placeholder="Username" required>
+            <input type="password" name="Password" placeholder="Password" required>
+            <button type="submit">Login</button>
         </form>
     </div>
     
