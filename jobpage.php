@@ -90,7 +90,7 @@ $result = mysqli_stmt_get_result($stmt);
 <body>
 
 <div class="d-flex flex-column min-vh-100" style="align-items:center; margin-top:100px;">
-<div class='job-container'>
+<div class='job-container' style='width: 80%;'>
 
 <?php
 if ($result->num_rows > 0) {

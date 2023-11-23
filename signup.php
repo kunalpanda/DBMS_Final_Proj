@@ -8,7 +8,7 @@ include "header.php";
     <link rel="stylesheet" type="text/css" href="css/forms.css">
 </head>
 <body style="background: linear-gradient(to bottom right, rgb(153, 3, 90), rgb(2, 15, 63));background-size: cover;">
-    <div class="d-flex align-items-center min-vh-100" style="padding-top:200px; height:200%;">
+    <div class="d-flex align-items-center min-vh-100" style="padding-top:100px; padding-bottom:20px; justify-content:center;">
         <div class="form-container-lg" style="max-width: 600px; width: 100%;">
             <form action="./db/signUpHandler.inc.php" method="post"> 
                 <h2 style="color: whitesmoke;">Register</h2>

@@ -9,7 +9,7 @@ include "header.php";
     <style></style>
 </head>
 <body style="background: linear-gradient(to bottom right, rgb(153, 3, 90), rgb(2, 15, 63));">
-    <div class="d-flex align-items-center min-vh-100" style="padding-bottom: 20px;">
+    <div class="d-flex align-items-center min-vh-100" style="padding-bottom: 20px; justify-content:center;">
         <div class="form-container-lg">
             <form action="./db/loginHandler.inc.php" method="post">
                 <h2 style="color:Whitesmoke;">Login</h2>

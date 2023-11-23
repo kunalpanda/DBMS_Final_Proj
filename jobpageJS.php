@@ -12,7 +12,12 @@ include "extapi.php";
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-12 text-center">
-            <h1 style="padding-top: 30px;">Explore All Jobs</h1>
+            <h1 style="padding-top: 30px; padding-bottom: 15px">Explore All Jobs</h1>
+            <?php
+                if (isset($_SESSION["UserRoleID"]) && ($_SESSION["UserRoleID"] == 2 || $_SESSION["UserRoleID"] == 3)) {
+                    echo '<a href="jobcreate.php" class="btn btn-lg btn-dark">Create Job</a>';
+                }
+            ?>
         </div>
     </div>
     <div class="row justify-content-center mt-4">
