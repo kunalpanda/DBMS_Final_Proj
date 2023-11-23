@@ -24,7 +24,7 @@ Composer is required for managing PHP dependencies.
 
 - **Download Composer**:
 
-- Run `Composer-setup.exe` [Run Composer](https://github.com/your-repository/path/to/Composer-setup.exe)
+- Download and Run `Composer-setup.exe` [Download from here](https://github.com/kunalpanda/DBMS_Final_Proj/blob/main/resources/Composer-Setup.exe)
 - Dont select any extra options
 - Select the installation directory to XAMPP/php, (it automatically detects)
 - Complete Install.
@@ -51,7 +51,7 @@ Open your command line tool and execute the following commands:
 
 Download the provided SQL dump file for setting up your database.
 
-- **Download SQL Dump Schema**: [Download](https://github.com/your-repository/path/to/Composer-setup.exe)
+- **Download SQL Dump Schema**: [Download from here](https://github.com/kunalpanda/DBMS_Final_Proj/blob/main/resources/Final_Database.sql)
 
 Import this file into your MySQL database via PHPMyAdmin or MySQL Workbench.
 
