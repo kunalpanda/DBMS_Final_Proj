@@ -66,4 +66,4 @@ Finally, start the XAMPP server:
 
 ## Conclusion
 
-You should now have everything set up for the project.
+You should now have everything set up for the project. Please refer to Final_Project_Report to follow the development journey and gain additional information.
